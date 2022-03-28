@@ -1,0 +1,22 @@
+{
+  "name": "meteo_prevision",
+  "version": "1.0.0",
+  "description": "\"Bienvenue sur mon site de m�t�o\"",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.scss:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justine1410/meteo_prevision.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/justine1410/meteo_prevision/issues"
+  },
+  "homepage": "https://github.com/justine1410/meteo_prevision#readme",
+  "dependencies": {
+    "sass": "^1.49.9"
+  }
+}
