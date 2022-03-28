@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/justine1410/meteo_prevision#readme",
   "dependencies": {
+    "axios": "^0.26.1",
     "sass": "^1.49.9"
   }
 }
