@@ -44,6 +44,16 @@ main .nom-ville, main .date {
   margin: 30px;
   color: #7F7FD5;
 }
+main .lever {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  color: #7F7FD5;
+  font-size: 30px;
+}
+main .lever i {
+  margin: 10px;
+}
 main .temp {
   background: #7F7FD5;
   /* fallback for old browsers */
