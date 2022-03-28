@@ -11,6 +11,51 @@ btn.addEventListener('click',()=>{
     recevoirTempérature(ville)
 })
 
+function calculDate(day){
+    let dates = new Date();
+    dates.setDate(dates.getDate()+ day);
+    let jour1 = dates.toLocaleDateString('fr-FR')
+    return jour1
+}
+
+function afficheData(reponse){
+    let date = new Date(reponse.list[0].dt_txt)
+    let heure = date.toLocaleTimeString('fr-FR');
+    let jour =  date.toLocaleDateString('fr-FR')
+
+    $('.nom-ville').text(reponse.city.name);
+    $('.date').text('Le '+ jour + " à " + heure);
+    $('.choix').html(`
+        <ul>
+            <li>${calculDate(1)}</li>
+            <li>${calculDate(2)}</li>
+            <li>${calculDate(3)}</li>
+            <li>${calculDate(4)}</li>
+        </ul>
+    `)
+    $(".temp").html(`
+           <div class="affiche-temp">
+                <div class="temperature">${reponse.list[0].main.temp}°</div>
+                <div> | </div>
+                <div class="soleil" > ${reponse.list[0].weather[0].description} </div>
+                <div> | </div>
+                <div class="vent">
+                    <i class="fa-regular fa-flag"></i>
+                     ${ parseInt(reponse.list[0].wind.gust * 3.6)}km/h
+                </div>
+            </div>
+            <div class="affiche-temp">
+                <div class="min">
+                    Minimum : ${reponse.list[0].main.temp_min}°
+                </div>
+                <div class="max">
+                     Maximum : ${ reponse.list[0].main.temp_max}°
+                </div>
+            </div>
+    `)
+}
+
+
 function recevoirTempérature(ville){
     const url2 ='https://api.openweathermap.org/data/2.5/forecast?q='+ville +'&lang=fr&appid=dc8c9152e8adaad0ec8bf635818c0d42&units=metric';
 
@@ -19,32 +64,7 @@ function recevoirTempérature(ville){
     .then((response)=>{     
         let reponse = response.data
         console.log(reponse); 
-        let date = reponse.list[0].dt_txt.split(' ');
-        let jour = date[0].split('-').reverse().join('/')
-        let heure = date[1];
-
-        $('.nom-ville').text(reponse.city.name);
-        $('.date').text('Le '+ jour + " à " + heure);
-        $(".temp").html(`
-               <div class="affiche-temp">
-                    <div class="temperature">${reponse.list[0].main.temp}°</div>
-                    <div> | </div>
-                    <div class="soleil" > ${reponse.list[0].weather[0].description} </div>
-                    <div> | </div>
-                    <div class="vent">
-                        <i class="fa-regular fa-flag"></i>
-                         ${ parseInt(reponse.list[0].wind.speed * 3.6)}km/h
-                    </div>
-                </div>
-                <div class="affiche-temp">
-                    <div class="min">
-                        Minimum : ${reponse.list[0].main.temp_min}°
-                    </div>
-                    <div class="max">
-                         Maximum : ${ reponse.list[0].main.temp_max}°
-                    </div>
-                </div>
-        `)
+        afficheData(reponse)
 
     })
     .catch((error)=>{
@@ -54,11 +74,10 @@ function recevoirTempérature(ville){
 
     axios.get("https://api.sunrise-sunset.org/json?q="+ville+"&formatted=0")
     .then((response)=>{
-        let reponse = response.data.results
-        console.log(reponse);
-
+        const reponse = response.data.results
         const lever = new Date(reponse.sunrise);
-        let coucher = new Date(reponse.sunset) 
+        const coucher = new Date(reponse.sunset) 
+
         $(".lever").html(`
             <div>
                 <i class="fa-solid fa-sun"></i>${ lever.toLocaleTimeString('fr-FR')}
@@ -74,3 +93,4 @@ function recevoirTempérature(ville){
 
 
 }
+

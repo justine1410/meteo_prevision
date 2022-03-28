@@ -5,31 +5,47 @@ main{
     align-items: center;
     .nom-ville, .date{
         font-size: 35px;
-        margin: 30px;
-        color:#7F7FD5 ;
+        margin: 10px;
+        color:#145e9a ;
+        
     }
-    .lever{
+    .lever, .choix{
         width: 100%;
         display: flex;
         justify-content: space-evenly;
-        color:#7F7FD5 ;
+        color:#145e9a ;
         font-size: 30px;
         i{
             margin: 10px;
         }
 
+        ul{
+            display: flex;
+            justify-content: space-evenly;
+            width: 80%;
+            margin-bottom: 0;
+            li{
+                list-style: none;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.5);
+                }
+            }
+        }
+
     }
     .temp{
         background: #7F7FD5;  /* fallback for old browsers */
-        background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);  /* Chrome 10-25, Safari 5.1-6 */
-        background: linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: -webkit-linear-gradient(to top, #91EAE4, #037aca);  /* Chrome 10-25, Safari 5.1-6 */
+        background: linear-gradient(to top, #91EAE4, #037aca); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
         height: 300px;
-        width: 60%;
+        width: 70%;
         display: flex;
         flex-direction: column;
         justify-content: space-evenly;
         font-size: 30px;
         color: white;
+        margin-top: 20px;
         i{
             padding-right: 10px;
         }
