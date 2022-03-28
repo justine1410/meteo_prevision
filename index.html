@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="shortcut icon" href="./img/season-1669848_1280.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+
     <title>Prévision météo</title>
 </head>
 <body>
@@ -19,12 +24,39 @@
     </header>
 
     <main>
-
+            <div class="nom-ville">
+                Ville
+            </div>
+            <div class="date">
+               Date, heure
+            </div>
+            <div class="temp">
+                <div class="affiche-temp">
+                    <div class="temperature"> Température </div>
+                    <div> | </div>
+                    <div class="soleil" translate="yes"> Ciel </div>
+                    <div> | </div>
+    
+                    <div class="vent">
+                         Vitesse du vent 
+                    </div>
+                </div>
+                <div class="affiche-temp">
+                    <div class="min">
+                            min :
+                    </div>
+                    <div class="max">
+                         max :
+                    </div>
+                </div>
+    
+            </div>
     </main>
 
     <footer>
 
     </footer>
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
     <script src="./index.js"></script>
 
 </body>

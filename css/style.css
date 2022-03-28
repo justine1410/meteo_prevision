@@ -33,4 +33,40 @@
   cursor: pointer;
 }
 
+main {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main .nom-ville, main .date {
+  font-size: 35px;
+  margin: 30px;
+  color: #7F7FD5;
+}
+main .temp {
+  background: #7F7FD5;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #91EAE4, #86A8E7, #7F7FD5);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to top, #91EAE4, #86A8E7, #7F7FD5);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 300px;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 30px;
+  color: white;
+}
+main .temp i {
+  padding-right: 10px;
+}
+main .temp .affiche-temp {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
 /*# sourceMappingURL=style.css.map */
