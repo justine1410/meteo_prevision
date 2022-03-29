@@ -1,5 +1,5 @@
 
-recevoirTempérature(ville="Brignac-la-plaine")
+recevoirTempérature(ville="Paris")
 
 // Demande d'une ville
 let input = document.querySelector('input');
@@ -18,42 +18,59 @@ function calculDate(day){
     return jour1
 }
 
-function afficheData(reponse){
-    let date = new Date(reponse.list[0].dt_txt)
-    let heure = date.toLocaleTimeString('fr-FR');
+function calculDatePrevision(day){
+    let dates = new Date();
+    dates.setDate(dates.getDate()+ day);
+    let jours = dates.toLocaleDateString('fr-FR')
+    let jour = jours.split('/').reverse().join('-')
+    let jour1 = jour + " 00:00:00"
+    return jour1
+}
+
+function afficheData(reponse, index){
+    let date = new Date(reponse.list[index].dt_txt)
     let jour =  date.toLocaleDateString('fr-FR')
 
+
     $('.nom-ville').text(reponse.city.name);
-    $('.date').text('Le '+ jour + " à " + heure);
+    $('.date').text('Le '+ jour );
     $('.choix').html(`
         <ul>
-            <li>${calculDate(1)}</li>
-            <li>${calculDate(2)}</li>
+            <li class="jourJ"> Aujourd'hui </li>
+            <li class="choix1">${calculDate(1)}</li>
+            <li class="choix2">${calculDate(2)}</li>
             <li>${calculDate(3)}</li>
             <li>${calculDate(4)}</li>
         </ul>
     `)
     $(".temp").html(`
            <div class="affiche-temp">
-                <div class="temperature">${reponse.list[0].main.temp}°</div>
+                <div class="temperature">${reponse.list[index].main.temp}°</div>
                 <div> | </div>
-                <div class="soleil" > ${reponse.list[0].weather[0].description} </div>
+                <div class="soleil" > ${reponse.list[index].weather[0].description} </div>
                 <div> | </div>
                 <div class="vent">
                     <i class="fa-regular fa-flag"></i>
-                     ${ parseInt(reponse.list[0].wind.gust * 3.6)}km/h
+                     ${ parseInt(reponse.list[index].wind.gust * 3.6)}km/h
                 </div>
             </div>
             <div class="affiche-temp">
                 <div class="min">
-                    Minimum : ${reponse.list[0].main.temp_min}°
+                    Minimum : ${reponse.list[index].main.temp_min}°
                 </div>
                 <div class="max">
-                     Maximum : ${ reponse.list[0].main.temp_max}°
+                     Maximum : ${ reponse.list[index].main.temp_max}°
                 </div>
             </div>
     `)
 }
+
+function myFunction() {
+    $("#myPopup").addClass("show")
+    $(".popup").css("display","inherit")
+    $(".fa-xmark").click(()=>$(".popup").css("display", "none"))
+  }
+
 
 
 function recevoirTempérature(ville){
@@ -62,13 +79,66 @@ function recevoirTempérature(ville){
     //Récupération des prévisions
     axios.get(url2)
     .then((response)=>{     
-        let reponse = response.data
-        console.log(reponse); 
-        afficheData(reponse)
+        console.log(response.data.list);
+        afficheData(response.data, 0)
+
+        let choix1 = document.querySelector('.choix1')
+        choix1.addEventListener('click', ()=>{
+            for(i=0; i < response.data.list.length ; i++){
+                if(response.data.list[i].dt_txt == calculDatePrevision(1))
+                {
+                    $('.date').text('Le '+ calculDate(1));
+
+                    $('.choix').html(`
+                    <ul>
+                        <li> Aujourd'hui </li>
+                        <li class="choix1">${calculDate(1)}</li>
+                        <li class="choix2">${calculDate(2)}</li>
+                        <li>${calculDate(3)}</li>
+                        <li>${calculDate(4)}</li>
+                    </ul>
+                    `)
+                    $(".temp").html(`
+                        <div class="affiche-temp">
+                                <div class="temperature">${response.data.list[i].main.temp}°</div>
+                                <div> | </div>
+                                <div class="soleil" > ${response.data.list[i].weather[0].description} </div>
+                                <div> | </div>
+                                <div class="vent">
+                                    <i class="fa-regular fa-flag"></i>
+                                    ${ parseInt(response.data.list[i].wind.gust * 3.6)}km/h
+                                </div>
+                            </div>
+                            <div class="affiche-temp">
+                                <div class="min">
+                                    Minimum : ${response.data.list[i].main.temp_min}°
+                                </div>
+                                <div class="max">
+                                    Maximum : ${ response.data.list[i].main.temp_max}°
+                                </div>
+                            </div>
+                    `)
+                }else{
+                    console.log('non');
+                }
+
+            }
+        })
+
+
+
+        let jourJ = document.querySelector('.jourJ')
+        jourJ.addEventListener('click',()=>{
+            // afficheData(response.data, 0)
+            console.log('coucou');
+        });
+
+
 
     })
     .catch((error)=>{
-        console.log(error);
+        myFunction()
+
     })
 
 

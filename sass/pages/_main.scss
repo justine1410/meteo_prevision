@@ -28,7 +28,6 @@ main{
                 list-style: none;
                 &:hover{
                     cursor: pointer;
-                    transform: scale(1.5);
                 }
             }
         }
@@ -57,3 +56,33 @@ main{
         }
     }
 }
+
+/* Popup container */
+.popup {
+    display: none;
+    .popuptext{
+        visibility: hidden;
+        background-color: #c23616;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 10px;
+        display: flex;
+        
+    }
+    .show{
+        visibility: visible;
+        -webkit-animation: fadeIn 1s;
+        animation: fadeIn 0.5s ease-in-out
+    }
+    i:hover{
+        cursor: pointer;
+    }
+  }
+ 
+  
+  /* Add animation (fade in the popup) */ 
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }

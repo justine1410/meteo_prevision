@@ -8,6 +8,7 @@
     <link rel="shortcut icon" href="./img/season-1669848_1280.png">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.26.1/axios.min.js"></script>
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
@@ -21,11 +22,18 @@
             <input type="text" placeholder="Rechercher une ville">
             <i class='fa-solid fa-magnifying-glass' ></i>
         </div>
+
     </header>
 
     <main>
+            <div class="popup">
+                <span class="popuptext" id="myPopup">
+                    Cette ville n'a pas été trouvée ! <br> Veuillez rentrer une nouvelle ville.<i class="fa-solid fa-xmark"></i>
+                </span>
+            </div>
+
             <div class="nom-ville">
-               
+
             </div>
             <div class="date">
                
