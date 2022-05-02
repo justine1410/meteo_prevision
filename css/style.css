@@ -64,9 +64,11 @@ main .lever i, main .choix i {
 }
 main .lever ul, main .choix ul {
   display: flex;
-  justify-content: space-evenly;
-  width: 80%;
-  margin-bottom: 0;
+  justify-content: space-between;
+  width: 70%;
+  padding: 10px 5px 10px 5px;
+  margin: 0;
+  box-shadow: #95a5a6 0px 4px 12px;
 }
 main .lever ul li, main .choix ul li {
   list-style: none;
@@ -89,6 +91,7 @@ main .temp {
   font-size: 30px;
   color: white;
   margin-top: 20px;
+  padding: 10px 5px 10px 5px;
 }
 main .temp i {
   padding-right: 10px;
@@ -115,7 +118,6 @@ main .temp .affiche-temp {
 }
 .popup .show {
   visibility: visible;
-  -webkit-animation: fadeIn 1s;
   animation: fadeIn 0.5s ease-in-out;
 }
 .popup i:hover {
@@ -124,10 +126,10 @@ main .temp .affiche-temp {
 
 /* Add animation (fade in the popup) */
 @keyframes fadeIn {
-  from {
+  0% {
     opacity: 0;
   }
-  to {
+  100% {
     opacity: 1;
   }
 }
