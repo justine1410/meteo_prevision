@@ -41,5 +41,19 @@ body{
     }
 }
 
-
+@media screen and (min-width:320px) and (max-width:750px){
+    .header{
+        height: 150px;
+        .navigation{
+            flex-direction: column;
+            input{
+                width: 80%;
+            }
+            i{
+                right: -35%;
+                top: -15%;
+            }
+        }
+    }
+}
 

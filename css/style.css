@@ -41,6 +41,21 @@ body {
   cursor: pointer;
 }
 
+@media screen and (min-width: 320px) and (max-width: 750px) {
+  .header {
+    height: 150px;
+  }
+  .header .navigation {
+    flex-direction: column;
+  }
+  .header .navigation input {
+    width: 80%;
+  }
+  .header .navigation i {
+    right: -35%;
+    top: -15%;
+  }
+}
 main {
   padding: 20px;
   display: flex;
@@ -69,6 +84,9 @@ main .lever ul, main .choix ul {
   padding: 10px 5px 10px 5px;
   margin: 0;
   box-shadow: #95a5a6 0px 4px 12px;
+}
+main .lever ul .separateur1, main .choix ul .separateur1 {
+  display: none;
 }
 main .lever ul li, main .choix ul li {
   list-style: none;
@@ -131,6 +149,41 @@ main .temp .affiche-temp {
   }
   100% {
     opacity: 1;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1050px) {
+  main .choix ul {
+    flex-direction: column;
+  }
+  main .choix ul .separateur {
+    display: none;
+  }
+  main .choix ul li {
+    text-align: center;
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 750px) {
+  main {
+    padding: 0;
+  }
+  main .temp {
+    width: 100%;
+    padding: 10px 0 10px 0;
+    font-size: 20px;
+  }
+  main .choix ul {
+    width: 100%;
+    flex-direction: column;
+  }
+  main .choix ul .separateur {
+    display: none;
+  }
+  main .choix ul .separateur_mobile {
+    display: initial;
+  }
+  main .choix ul li {
+    text-align: center;
+    margin: 5px 0 5px 0;
   }
 }
 

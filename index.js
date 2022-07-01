@@ -2,14 +2,18 @@
 recevoirTempérature(ville="Paris")
 $('.choix').html(`
     <ul>
-        <li class="jourJ"> Aujourd'hui </li>
-        <li>|</li>
+        <li class="jourJ">  Aujourd'hui </li>
+        <li class="separateur">|</li>
+        <li class="separateur_mobile"> <HR ALIGN=CENTER WIDTH="100"> </li>
         <li class="choix1">${calculDate(1)}</li>
-        <li>|</li>
+        <li class="separateur">|</li>
+        <li class="separateur_mobile"> <HR ALIGN=CENTER WIDTH="100"> </li>
         <li class="choix2">${calculDate(2)}</li>
-        <li>|</li>
+        <li class="separateur">|</li>
+        <li class="separateur_mobile"> <HR ALIGN=CENTER WIDTH="100"> </li>
         <li class="choix3">${calculDate(3)}</li>
-        <li>| </li>
+        <li class="separateur">|</li>
+        <li class="separateur_mobile"> <HR ALIGN=CENTER WIDTH="100"> </li>
         <li class="choix4">${calculDate(4)}</li>
     </ul>
 `)
