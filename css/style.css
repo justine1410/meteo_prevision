@@ -85,7 +85,7 @@ main .lever ul, main .choix ul {
   margin: 0;
   box-shadow: #95a5a6 0px 4px 12px;
 }
-main .lever ul .separateur1, main .choix ul .separateur1 {
+main .lever ul .separateur_mobile, main .choix ul .separateur_mobile {
   display: none;
 }
 main .lever ul li, main .choix ul li {
